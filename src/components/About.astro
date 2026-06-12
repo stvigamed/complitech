@@ -1,0 +1,28 @@
+---
+import { useTranslations } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { t } = useTranslations(locale);
+---
+
+<section id="about" class="bg-surface px-4 py-20 sm:px-6" aria-labelledby="about-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-12 text-center">
+      <h2 id="about-heading" class="mb-4 text-3xl font-bold text-navy sm:text-4xl">
+        {t('about.title')}
+      </h2>
+      <div class="mx-auto h-1 w-16 rounded-full bg-teal"></div>
+    </div>
+
+    <div class="mx-auto max-w-3xl space-y-6 text-base leading-relaxed text-navy/80 sm:text-lg">
+      <p>{t('about.p1')}</p>
+      <p>{t('about.p2')}</p>
+      <p>{t('about.p3')}</p>
+    </div>
+  </div>
+</section>

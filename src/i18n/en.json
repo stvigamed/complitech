@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "CompliTech | Medical & Laboratory Equipment Supply",
+    "description": "OÜ CompliTech — B2B wholesale supplier of certified medical and laboratory equipment, reagents, and consumables from leading global manufacturers across Europe."
+  },
+  "nav": {
+    "about": "About Us",
+    "brands": "Partners",
+    "services": "Services",
+    "contact": "Contact",
+    "menu": "Open menu",
+    "skip": "Skip to main content"
+  },
+  "hero": {
+    "tagline": "Working Worldwide for Your Benefit",
+    "subtitle": "Integrated Laboratory Solutions Across Europe",
+    "body": "OÜ CompliTech is your trusted B2B partner for diagnostic laboratory supply. We deliver certified equipment, reagents, and consumables from the world's leading manufacturers — keeping your laboratory operating without interruption.",
+    "ctaPrimary": "Request a Quote",
+    "ctaSecondary": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "p1": "CompliTech OÜ is an international company based in Tallinn, Estonia, specializing in the wholesale supply of certified medical and laboratory equipment to healthcare institutions across Europe.",
+    "p2": "We serve hospitals, clinics, medical centres, and diagnostic laboratories with a comprehensive portfolio of diagnostic instruments, certified reagents, calibrators, quality controls, and consumables from globally recognized manufacturers.",
+    "p3": "Our value proposition is straightforward: through reliable global supply chains and direct manufacturer partnerships, we ensure the uninterrupted operation of your diagnostic laboratory — so you can focus on what matters most: patient care."
+  },
+  "brands": {
+    "title": "Our Partners",
+    "subtitle": "We work with leading global manufacturers to deliver certified, high-quality laboratory solutions."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive supply solutions for diagnostic laboratories across Europe.",
+    "items": [
+      {
+        "title": "Laboratory Diagnostics Equipment",
+        "description": "Analyzers, hematology systems, immunoassay platforms, coagulation instruments, and point-of-care devices from internationally accredited manufacturers."
+      },
+      {
+        "title": "Certified Reagents & Consumables",
+        "description": "CE-certified reagents, calibrators, controls, and laboratory consumables for clinical chemistry, immunology, hematology, and molecular diagnostics."
+      },
+      {
+        "title": "Turnkey Integrated Solutions for Labs",
+        "description": "End-to-end laboratory support: equipment sourcing, reagent supply programs, and logistics tailored to your facility's diagnostic workflow."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to equip your laboratory? Contact us for a personalized quote or product inquiry.",
+    "phone": "Phone & Messengers",
+    "phoneValue": "+372 5621-19-02",
+    "messengers": "WhatsApp, Telegram, Viber",
+    "emailGeneral": "General Inquiries",
+    "emailSales": "Price Requests",
+    "address": "Address",
+    "addressValue": "Astangu tn 66-60, 13519 Tallinn, Estonia",
+    "vat": "VAT",
+    "vatValue": "EE102318454",
+    "website": "Website"
+  },
+  "form": {
+    "title": "Send a Message",
+    "name": "Full Name",
+    "email": "Email Address",
+    "company": "Company / Institution",
+    "phone": "Phone (optional)",
+    "message": "Your Message",
+    "submit": "Send Request",
+    "subject": "CompliTech Quote Request"
+  },
+  "footer": {
+    "tagline": "Working worldwide for your benefit.",
+    "rights": "All rights reserved.",
+    "company": "CompliTech OÜ"
+  }
+}

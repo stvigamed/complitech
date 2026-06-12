@@ -1,0 +1,43 @@
+---
+import { getMeta } from '../../i18n/ui';
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const meta = getMeta(locale);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://complitech.ee';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['Organization', 'LocalBusiness'],
+  name: 'CompliTech OÜ',
+  legalName: 'CompliTech OÜ',
+  url: site,
+  logo: `${site}/images/logo-big.webp`,
+  description: meta.description,
+  vatID: 'EE102318454',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Astangu tn 66-60',
+    addressLocality: 'Tallinn',
+    addressRegion: 'Harjumaa',
+    postalCode: '13519',
+    addressCountry: 'EE',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+372-5621-1902',
+      email: 'complitech@mail.ee',
+      contactType: 'customer service',
+      availableLanguage: ['English', 'Russian'],
+    },
+  ],
+  sameAs: [site],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

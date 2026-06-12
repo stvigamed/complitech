@@ -1,0 +1,44 @@
+---
+import { brands } from '../i18n/brands';
+import { useTranslations } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { t } = useTranslations(locale);
+---
+
+<section id="brands" class="px-4 py-20 sm:px-6" aria-labelledby="brands-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-12 text-center">
+      <h2 id="brands-heading" class="mb-4 text-3xl font-bold text-navy sm:text-4xl">
+        {t('brands.title')}
+      </h2>
+      <p class="mx-auto max-w-2xl text-base text-navy/70 sm:text-lg">
+        {t('brands.subtitle')}
+      </p>
+      <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-teal"></div>
+    </div>
+
+    <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        brands.map((brand) => (
+          <li>
+            <div class="group flex h-full min-h-[100px] flex-col items-center justify-center rounded-xl border border-navy/10 bg-white p-4 text-center shadow-sm transition-all hover:border-teal/30 hover:shadow-md">
+              {/* Logo slot: replace with <img> when brand assets are available */}
+              <span class="text-sm font-semibold text-navy transition-colors group-hover:text-teal sm:text-base">
+                {brand.name}
+              </span>
+              {brand.subtitle && (
+                <span class="mt-1 text-xs text-navy/50">{brand.subtitle}</span>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

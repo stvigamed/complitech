@@ -1,0 +1,48 @@
+---
+import { locales, ogLocales, type Locale } from '../../i18n/config';
+import { getMeta } from '../../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  path?: string;
+}
+
+const { locale, path = '/' } = Astro.props;
+const meta = getMeta(locale);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://complitech.ee';
+
+const localePath = locale === 'en' ? '/' : `/${locale}/`;
+const canonical = new URL(localePath, site).toString();
+const ogImage = new URL('/images/logo-big.webp', site).toString();
+---
+
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="CompliTech OÜ" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={ogLocales[locale]} />
+
+{
+  locales
+    .filter((l) => l !== locale)
+    .map((l) => <meta property="og:locale:alternate" content={ogLocales[l]} />)
+}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={meta.title} />
+<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={ogImage} />
+
+{
+  locales.map((l) => {
+    const href = l === 'en' ? `${site}/` : `${site}/${l}/`;
+    return <link rel="alternate" hreflang={l} href={href} />;
+  })
+}
+<link rel="alternate" hreflang="x-default" href={`${site}/`} />

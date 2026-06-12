@@ -1,0 +1,47 @@
+---
+import { useTranslations } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { t, tRaw } = useTranslations(locale);
+const services = tRaw('services').items;
+
+const icons = [
+  // Microscope / equipment
+  `<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.59-.659L5 14.5m14 0V19a2 2 0 01-2 2H7a2 2 0 01-2-2v-4.5" /></svg>`,
+  // Reagents / flask
+  `<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5" /></svg>`,
+  // Integration / puzzle
+  `<svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>`,
+];
+---
+
+<section id="services" class="bg-surface px-4 py-20 sm:px-6" aria-labelledby="services-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-12 text-center">
+      <h2 id="services-heading" class="mb-4 text-3xl font-bold text-navy sm:text-4xl">
+        {t('services.title')}
+      </h2>
+      <p class="mx-auto max-w-2xl text-base text-navy/70 sm:text-lg">
+        {t('services.subtitle')}
+      </p>
+      <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-teal"></div>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      {
+        services.map((service, i) => (
+          <article class="flex flex-col rounded-2xl border border-navy/10 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-teal/10 text-teal" set:html={icons[i]} />
+            <h3 class="mb-3 text-xl font-semibold text-navy">{service.title}</h3>
+            <p class="flex-1 text-sm leading-relaxed text-navy/70 sm:text-base">{service.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

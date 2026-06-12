@@ -1,0 +1,228 @@
+---
+import { useTranslations } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { t } = useTranslations(locale);
+
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
+const phoneHref = 'tel:+37256211902';
+const whatsappHref = 'https://wa.me/37256211902';
+---
+
+<section id="contact" class="px-4 py-20 sm:px-6" aria-labelledby="contact-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-12 text-center">
+      <h2 id="contact-heading" class="mb-4 text-3xl font-bold text-navy sm:text-4xl">
+        {t('contact.title')}
+      </h2>
+      <p class="mx-auto max-w-2xl text-base text-navy/70 sm:text-lg">
+        {t('contact.subtitle')}
+      </p>
+      <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-teal"></div>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-2">
+      <address class="not-italic">
+        <dl class="space-y-6">
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.phone')}
+            </dt>
+            <dd>
+              <a
+                href={phoneHref}
+                class="text-lg font-medium text-navy transition-colors hover:text-teal"
+              >
+                {t('contact.phoneValue')}
+              </a>
+              <p class="mt-1 text-sm text-navy/60">{t('contact.messengers')}</p>
+              <div class="mt-2 flex gap-3">
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href="https://t.me/+37256211902"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
+                >
+                  Telegram
+                </a>
+                <a
+                  href="viber://chat?number=37256211902"
+                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
+                >
+                  Viber
+                </a>
+              </div>
+            </dd>
+          </div>
+
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.emailGeneral')}
+            </dt>
+            <dd>
+              <a
+                href="mailto:complitech@mail.ee"
+                class="text-base font-medium text-navy transition-colors hover:text-teal"
+              >
+                complitech@mail.ee
+              </a>
+            </dd>
+          </div>
+
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.emailSales')}
+            </dt>
+            <dd>
+              <a
+                href="mailto:sales@complitech.ee"
+                class="text-base font-medium text-navy transition-colors hover:text-teal"
+              >
+                sales@complitech.ee
+              </a>
+            </dd>
+          </div>
+
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.address')}
+            </dt>
+            <dd class="text-base text-navy/80">{t('contact.addressValue')}</dd>
+          </div>
+
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.vat')}
+            </dt>
+            <dd class="text-base text-navy/80">{t('contact.vatValue')}</dd>
+          </div>
+
+          <div>
+            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
+              {t('contact.website')}
+            </dt>
+            <dd>
+              <a
+                href="https://complitech.ee"
+                class="text-base font-medium text-navy transition-colors hover:text-teal"
+              >
+                www.complitech.ee
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </address>
+
+      <div class="rounded-2xl border border-navy/10 bg-white p-6 shadow-sm sm:p-8">
+        <h3 class="mb-6 text-xl font-semibold text-navy">{t('form.title')}</h3>
+
+        {
+          web3formsKey ? (
+            <form
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              class="space-y-4"
+            >
+              <input type="hidden" name="access_key" value={web3formsKey} />
+              <input type="hidden" name="subject" value={t('form.subject')} />
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+              <div>
+                <label for="name" class="mb-1 block text-sm font-medium text-navy">
+                  {t('form.name')}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                />
+              </div>
+
+              <div>
+                <label for="email" class="mb-1 block text-sm font-medium text-navy">
+                  {t('form.email')}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                />
+              </div>
+
+              <div>
+                <label for="company" class="mb-1 block text-sm font-medium text-navy">
+                  {t('form.company')}
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  required
+                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                />
+              </div>
+
+              <div>
+                <label for="phone" class="mb-1 block text-sm font-medium text-navy">
+                  {t('form.phone')}
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                />
+              </div>
+
+              <div>
+                <label for="message" class="mb-1 block text-sm font-medium text-navy">
+                  {t('form.message')}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full resize-y rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-light focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
+              >
+                {t('form.submit')}
+              </button>
+            </form>
+          ) : (
+            <p class="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+              Contact form requires <code class="font-mono text-xs">PUBLIC_WEB3FORMS_KEY</code> environment variable.
+              Email us directly at{' '}
+              <a href="mailto:sales@complitech.ee" class="font-medium underline">
+                sales@complitech.ee
+              </a>
+              .
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

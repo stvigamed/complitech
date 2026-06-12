@@ -1,0 +1,83 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { useTranslations } from '../i18n/ui';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { t } = useTranslations(locale);
+
+const navItems = [
+  { id: 'about', label: t('nav.about') },
+  { id: 'brands', label: t('nav.brands') },
+  { id: 'services', label: t('nav.services') },
+  { id: 'contact', label: t('nav.contact') },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-navy shadow-lg">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="#" class="flex shrink-0 items-center gap-3" aria-label="CompliTech OÜ — Home">
+      <picture>
+        <source srcset="/images/logo-small.webp" type="image/webp" />
+        <img
+          src="/images/logo-small.jpg"
+          alt="CompliTech OÜ"
+          width="48"
+          height="48"
+          class="h-10 w-10 rounded object-contain"
+          loading="eager"
+        />
+      </picture>
+      <span class="hidden text-sm font-semibold text-white sm:inline lg:text-base">
+        CompliTech OÜ
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Main navigation">
+      {
+        navItems.map((item) => (
+          <a
+            href={`#${item.id}`}
+            class="text-sm font-medium text-white/85 transition-colors hover:text-teal-light"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <LanguageSwitcher currentLocale={locale} />
+
+      <details class="relative md:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center rounded-lg border border-white/20 px-3 py-2 text-sm text-white"
+          aria-label={t('nav.menu')}
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </summary>
+        <nav
+          class="absolute right-0 mt-2 w-48 rounded-lg border border-white/10 bg-navy-light py-2 shadow-xl"
+          aria-label="Mobile navigation"
+        >
+          {
+            navItems.map((item) => (
+              <a
+                href={`#${item.id}`}
+                class="block px-4 py-2 text-sm text-white/90 hover:bg-white/10 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

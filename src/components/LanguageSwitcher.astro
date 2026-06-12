@@ -1,0 +1,33 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { locales, localeLabels, type Locale } from '../i18n/config';
+
+interface Props {
+  currentLocale: Locale;
+}
+
+const { currentLocale } = Astro.props;
+---
+
+<nav aria-label="Language selection" class="flex items-center gap-1 text-sm font-medium">
+  {
+    locales.map((locale, index) => (
+      <>
+        {index > 0 && <span class="text-white/40" aria-hidden="true">|</span>}
+        {locale === currentLocale ? (
+          <span class="rounded px-2 py-1 text-teal-light" aria-current="true">
+            {localeLabels[locale]}
+          </span>
+        ) : (
+          <a
+            href={getRelativeLocaleUrl(locale, '/')}
+            class="rounded px-2 py-1 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+            hreflang={locale}
+          >
+            {localeLabels[locale]}
+          </a>
+        )}
+      </>
+    ))
+  }
+</nav>
