@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "CompliTech | Medical & Laboratory Equipment Supply",
-    "description": "OÜ CompliTech — B2B wholesale supplier of certified medical and laboratory equipment, reagents, and consumables from leading global manufacturers across Europe."
+    "title": "Compli Tech | Medical & Laboratory Equipment Supply",
+    "description": "OÜ Compli Tech — B2B wholesale supplier of certified medical and laboratory equipment, reagents, and consumables from leading global manufacturers across Europe."
   },
   "nav": {
     "about": "About Us",
@@ -14,13 +14,13 @@
   "hero": {
     "tagline": "Working Worldwide for Your Benefit",
     "subtitle": "Integrated Laboratory Solutions Across Europe",
-    "body": "OÜ CompliTech is your trusted B2B partner for diagnostic laboratory supply. We deliver certified equipment, reagents, and consumables from the world's leading manufacturers — keeping your laboratory operating without interruption.",
+    "body": "OÜ Compli Tech is your trusted B2B partner for diagnostic laboratory supply. We deliver certified equipment, reagents, and consumables from the world's leading manufacturers — keeping your laboratory operating without interruption.",
     "ctaPrimary": "Request a Quote",
     "ctaSecondary": "Contact Us"
   },
   "about": {
     "title": "About Us",
-    "p1": "CompliTech OÜ is an international company based in Tallinn, Estonia, specializing in the wholesale supply of certified medical and laboratory equipment to healthcare institutions across Europe.",
+    "p1": "Compli Tech OÜ is an international company based in Tallinn, Estonia, specializing in the wholesale supply of certified medical and laboratory equipment to healthcare institutions across Europe.",
     "p2": "We serve hospitals, clinics, medical centres, and diagnostic laboratories with a comprehensive portfolio of diagnostic instruments, certified reagents, calibrators, quality controls, and consumables from globally recognized manufacturers.",
     "p3": "Our value proposition is straightforward: through reliable global supply chains and direct manufacturer partnerships, we ensure the uninterrupted operation of your diagnostic laboratory — so you can focus on what matters most: patient care."
   },
@@ -48,20 +48,21 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "subtitle": "Ready to equip your laboratory? Contact us for a personalized quote or product inquiry.",
-    "phone": "Phone & Messengers",
+    "subtitle": "Ready to equip your laboratory? Choose the way that works best for you.",
+    "reachUs": "Reach us",
     "phoneValue": "+372 5621-19-02",
-    "messengers": "WhatsApp, Telegram, Viber",
-    "emailGeneral": "Email",
-    "address": "Address",
-    "addressValue": "Astangu tn 66-60, 13519 Tallinn, Estonia",
-    "vat": "VAT",
-    "vatValue": "EE102318454",
-    "website": "Website"
+    "emailTitle": "Email us",
+    "emailHint": "Quotes, inquiries & product questions",
+    "chatTitle": "Phone & Messengers",
+    "chatHint": "One number for calls and messengers",
+    "callLabel": "Or call"
   },
   "footer": {
     "tagline": "Working worldwide for your benefit.",
     "rights": "All rights reserved.",
-    "company": "CompliTech OÜ"
+    "company": "Compli Tech OÜ",
+    "addressValue": "Astangu tn 66-60, 13519 Tallinn, Estonia",
+    "vat": "VAT",
+    "vatValue": "EE102318454"
   }
 }

@@ -11,6 +11,19 @@ const { t } = useTranslations(locale);
 
 const phoneHref = 'tel:+37256211902';
 const whatsappHref = 'https://wa.me/37256211902';
+const telegramHref = 'https://t.me/+37256211902';
+const viberHref = 'viber://chat?number=37256211902';
+const emailHref = 'mailto:complitech@mail.ee';
+
+const emailIcon = `<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>`;
+
+const chatIcon = `<svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>`;
+
+const messengers = [
+  { label: 'WhatsApp', href: whatsappHref, external: true, icon: '/icons/whatsapp.svg' },
+  { label: 'Telegram', href: telegramHref, external: true, icon: '/icons/telegram.svg' },
+  { label: 'Viber', href: viberHref, external: false, icon: '/icons/viber.svg' },
+];
 ---
 
 <section id="contact" class="px-4 py-20 sm:px-6" aria-labelledby="contact-heading">
@@ -25,91 +38,56 @@ const whatsappHref = 'https://wa.me/37256211902';
       <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-teal"></div>
     </div>
 
-    <div class="mx-auto max-w-xl">
-      <address class="not-italic">
-        <dl class="space-y-6">
-          <div>
-            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
-              {t('contact.phone')}
-            </dt>
-            <dd>
-              <a
-                href={phoneHref}
-                class="text-lg font-medium text-navy transition-colors hover:text-teal"
-              >
-                {t('contact.phoneValue')}
-              </a>
-              <p class="mt-1 text-sm text-navy/60">{t('contact.messengers')}</p>
-              <div class="mt-2 flex gap-3">
+    <div class="mx-auto mb-10 max-w-4xl">
+      <p class="mb-6 text-center text-sm font-semibold uppercase tracking-wide text-teal">
+        {t('contact.reachUs')}
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal/10 text-teal" set:html={emailIcon} />
+          <h3 class="mb-1 text-lg font-semibold text-navy">{t('contact.emailTitle')}</h3>
+          <p class="mb-6 text-sm text-navy/60">{t('contact.emailHint')}</p>
+          <a
+            href={emailHref}
+            class="mt-auto inline-flex items-center rounded-xl bg-teal/5 px-4 py-3 text-base font-semibold text-navy transition-colors hover:bg-teal/10 hover:text-teal"
+          >
+            complitech@mail.ee
+          </a>
+        </article>
+
+        <article class="flex flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal/10 text-teal" set:html={chatIcon} />
+          <h3 class="mb-1 text-lg font-semibold text-navy">{t('contact.chatTitle')}</h3>
+          <p class="mb-5 text-sm text-navy/60">{t('contact.chatHint')}</p>
+
+          <div class="grid grid-cols-3 gap-2">
+            {
+              messengers.map((messenger) => (
                 <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
+                  href={messenger.href}
+                  {...(messenger.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  aria-label={messenger.label}
+                  class="flex flex-col items-center gap-1.5 rounded-lg border border-navy/10 bg-white px-2 py-3 transition-colors hover:border-navy/20 hover:bg-surface sm:gap-2 sm:py-3.5"
                 >
-                  WhatsApp
+                  <img src={messenger.icon} alt="" width="24" height="24" class="h-6 w-6" loading="lazy" />
+                  <span class="text-[10px] font-medium text-navy/70 sm:text-xs">{messenger.label}</span>
                 </a>
-                <a
-                  href="https://t.me/+37256211902"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
-                >
-                  Telegram
-                </a>
-                <a
-                  href="viber://chat?number=37256211902"
-                  class="rounded-lg bg-teal/10 px-3 py-1.5 text-xs font-medium text-teal transition-colors hover:bg-teal/20"
-                >
-                  Viber
-                </a>
-              </div>
-            </dd>
+              ))
+            }
           </div>
 
-          <div>
-            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
-              {t('contact.emailGeneral')}
-            </dt>
-            <dd>
-              <a
-                href="mailto:complitech@mail.ee"
-                class="text-base font-medium text-navy transition-colors hover:text-teal"
-              >
-                complitech@mail.ee
-              </a>
-            </dd>
-          </div>
-
-          <div>
-            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
-              {t('contact.address')}
-            </dt>
-            <dd class="text-base text-navy/80">{t('contact.addressValue')}</dd>
-          </div>
-
-          <div>
-            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
-              {t('contact.vat')}
-            </dt>
-            <dd class="text-base text-navy/80">{t('contact.vatValue')}</dd>
-          </div>
-
-          <div>
-            <dt class="mb-1 text-sm font-semibold uppercase tracking-wide text-teal">
-              {t('contact.website')}
-            </dt>
-            <dd>
-              <a
-                href="https://complitech.ee"
-                class="text-base font-medium text-navy transition-colors hover:text-teal"
-              >
-                www.complitech.ee
-              </a>
-            </dd>
-          </div>
-        </dl>
-      </address>
+          <p class="mb-3 mt-5 text-xs font-semibold uppercase tracking-wide text-navy/45">
+            {t('contact.callLabel')}
+          </p>
+          <a
+            href={phoneHref}
+            class="mt-auto inline-flex items-center rounded-xl bg-teal/5 px-4 py-3 text-base font-semibold text-navy transition-colors hover:bg-teal/10 hover:text-teal"
+          >
+            {t('contact.phoneValue')}
+          </a>
+        </article>
+      </div>
     </div>
   </div>
 </section>

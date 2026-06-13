@@ -1,5 +1,5 @@
 ---
-name: CompliTech Static Site
+name: Compli Tech Static Site
 overview: Scaffold a production-ready Astro 5 + Tailwind static site for complitech.ee with English (root) and Russian (/ru/) locales, full SEO (meta, hreflang, JSON-LD), and a one-page B2B medical supply layout — deployed to GitHub Pages via GitHub Actions.
 todos:
   - id: scaffold-astro
@@ -20,7 +20,7 @@ todos:
 isProject: false
 ---
 
-# CompliTech Business Card Website Plan
+# Compli Tech Business Card Website Plan
 
 ## 1. Tech Stack Recommendation
 
@@ -196,8 +196,8 @@ Inspired by [integrainternational.pl](https://integrainternational.pl), labevolu
 
 | Field              | EN                                                                                                                                                               | RU                                                                                                                                                                               |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `meta.title`       | CompliTech | Medical & Laboratory Equipment Supply                                                                                                               | CompliTech | Поставка медицинского и лабораторного оборудования                                                                                                                  |
-| `meta.description` | OÜ CompliTech — B2B wholesale supplier of certified medical and laboratory equipment, reagents, and consumables from leading global manufacturers across Europe. | OÜ CompliTech — оптовый B2B-поставщик сертифицированного медицинского и лабораторного оборудования, реагентов и расходных материалов от ведущих мировых производителей в Европе. |
+| `meta.title`       | Compli Tech | Medical & Laboratory Equipment Supply                                                                                                               | Compli Tech | Поставка медицинского и лабораторного оборудования                                                                                                                  |
+| `meta.description` | OÜ Compli Tech — B2B wholesale supplier of certified medical and laboratory equipment, reagents, and consumables from leading global manufacturers across Europe. | OÜ Compli Tech — оптовый B2B-поставщик сертифицированного медицинского и лабораторного оборудования, реагентов и расходных материалов от ведущих мировых производителей в Европе. |
 
 
 ### `SEOHead.astro` will output per page:
@@ -267,7 +267,7 @@ Inspired by [integrainternational.pl](https://integrainternational.pl), labevolu
 
 - Tagline: *Working Worldwide for Your Benefit*
 - Subtitle: *Integrated Laboratory Solutions Across Europe*
-- Body: *OÜ CompliTech is your trusted B2B partner for diagnostic laboratory supply. We deliver certified equipment, reagents, and consumables from the world's leading manufacturers — keeping your laboratory operating without interruption.*
+- Body: *OÜ Compli Tech is your trusted B2B partner for diagnostic laboratory supply. We deliver certified equipment, reagents, and consumables from the world's leading manufacturers — keeping your laboratory operating without interruption.*
 - CTA primary: *Request a Quote*
 - CTA secondary: *Contact Us*
 
@@ -275,7 +275,7 @@ Inspired by [integrainternational.pl](https://integrainternational.pl), labevolu
 
 - Tagline: *Работаем по всему миру на вашу пользу*
 - Subtitle: *Комплексные решения для лабораторий по всей Европе*
-- Body: *OÜ CompliTech — ваш надёжный B2B-партнёр в снабжении диагностических лабораторий. Мы поставляем сертифицированное оборудование, реагенты и расходные материалы от ведущих мировых производителей, обеспечивая бесперебойную работу вашей лаборатории.*
+- Body: *OÜ Compli Tech — ваш надёжный B2B-партнёр в снабжении диагностических лабораторий. Мы поставляем сертифицированное оборудование, реагенты и расходные материалы от ведущих мировых производителей, обеспечивая бесперебойную работу вашей лаборатории.*
 - CTA primary: *Запросить коммерческое предложение*
 - CTA secondary: *Связаться с нами*
 
@@ -283,7 +283,7 @@ Inspired by [integrainternational.pl](https://integrainternational.pl), labevolu
 
 **EN**
 
-> CompliTech OÜ is an international company based in Tallinn, Estonia, specializing in the wholesale supply of certified medical and laboratory equipment to healthcare institutions across Europe.
+> Compli Tech OÜ is an international company based in Tallinn, Estonia, specializing in the wholesale supply of certified medical and laboratory equipment to healthcare institutions across Europe.
 >
 > We serve hospitals, clinics, medical centres, and diagnostic laboratories with a comprehensive portfolio of diagnostic instruments, certified reagents, calibrators, quality controls, and consumables from globally recognized manufacturers.
 >
@@ -291,7 +291,7 @@ Inspired by [integrainternational.pl](https://integrainternational.pl), labevolu
 
 **RU**
 
-> CompliTech OÜ — международная компания с головным офисом в Таллине, Эстония, специализирующаяся на оптовых поставках сертифицированного медицинского и лабораторного оборудования медицинским учреждениям по всей Европе.
+> Compli Tech OÜ — международная компания с головным офисом в Таллине, Эстония, специализирующаяся на оптовых поставках сертифицированного медицинского и лабораторного оборудования медицинским учреждениям по всей Европе.
 >
 > Мы обслуживаем больницы, клиники, медицинские центры и диагностические лаборатории, предлагая полный ассортимент диагностического оборудования, сертифицированных реагентов, калибраторов, контрольных материалов и расходных материалов от признанных мировых производителей.
 >
@@ -390,7 +390,7 @@ Renders `EN | RU` links using `getRelativeLocaleUrl()` — on `/ru/`, clicking E
 ```html
 <form action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_KEY} />
-  <input type="hidden" name="subject" value="CompliTech Quote Request" />
+  <input type="hidden" name="subject" value="Compli Tech Quote Request" />
   <!-- fields -->
 </form>
 ```

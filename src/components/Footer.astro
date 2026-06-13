@@ -12,13 +12,21 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-white/10 bg-navy px-4 py-10 sm:px-6">
-  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-    <div>
+  <div class="mx-auto grid max-w-6xl gap-8 text-center md:grid-cols-3 md:gap-6 md:text-left">
+    <p class="text-sm text-white/50 md:self-center">
+      &copy; {year} {t('footer.company')}. {t('footer.rights')}
+    </p>
+
+    <address class="not-italic text-sm leading-relaxed text-white/60 md:text-center">
+      <p>{t('footer.addressValue')}</p>
+      <p class="mt-1">
+        {t('footer.vat')}: {t('footer.vatValue')}
+      </p>
+    </address>
+
+    <div class="md:text-right">
       <p class="text-sm font-semibold text-white">{t('footer.company')}</p>
       <p class="mt-1 text-sm text-white/60">{t('footer.tagline')}</p>
     </div>
-    <p class="text-sm text-white/50">
-      &copy; {year} {t('footer.company')}. {t('footer.rights')}
-    </p>
   </div>
 </footer>

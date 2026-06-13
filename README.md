@@ -1,4 +1,4 @@
-# CompliTech OÜ — Business Website
+# Compli Tech OÜ — Business Website
 
 Static multilingual business card website for [complitech.ee](https://complitech.ee), built with Astro 5, Tailwind CSS 4, and deployed to GitHub Pages.
 
