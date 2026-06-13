@@ -9,7 +9,6 @@ interface Props {
 const { locale } = Astro.props;
 const { t } = useTranslations(locale);
 
-const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
 const phoneHref = 'tel:+37256211902';
 const whatsappHref = 'https://wa.me/37256211902';
 ---
@@ -26,7 +25,7 @@ const whatsappHref = 'https://wa.me/37256211902';
       <div class="mx-auto mt-4 h-1 w-16 rounded-full bg-teal"></div>
     </div>
 
-    <div class="grid gap-12 lg:grid-cols-2">
+    <div class="mx-auto max-w-xl">
       <address class="not-italic">
         <dl class="space-y-6">
           <div>
@@ -111,104 +110,6 @@ const whatsappHref = 'https://wa.me/37256211902';
           </div>
         </dl>
       </address>
-
-      <div class="rounded-2xl border border-navy/10 bg-white p-6 shadow-sm sm:p-8">
-        <h3 class="mb-6 text-xl font-semibold text-navy">{t('form.title')}</h3>
-
-        {
-          web3formsKey ? (
-            <form
-              action="https://api.web3forms.com/submit"
-              method="POST"
-              class="space-y-4"
-            >
-              <input type="hidden" name="access_key" value={web3formsKey} />
-              <input type="hidden" name="subject" value={t('form.subject')} />
-              <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-
-              <div>
-                <label for="name" class="mb-1 block text-sm font-medium text-navy">
-                  {t('form.name')}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-                />
-              </div>
-
-              <div>
-                <label for="email" class="mb-1 block text-sm font-medium text-navy">
-                  {t('form.email')}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-                />
-              </div>
-
-              <div>
-                <label for="company" class="mb-1 block text-sm font-medium text-navy">
-                  {t('form.company')}
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  required
-                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-                />
-              </div>
-
-              <div>
-                <label for="phone" class="mb-1 block text-sm font-medium text-navy">
-                  {t('form.phone')}
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  class="w-full rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-                />
-              </div>
-
-              <div>
-                <label for="message" class="mb-1 block text-sm font-medium text-navy">
-                  {t('form.message')}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  required
-                  class="w-full resize-y rounded-lg border border-navy/20 px-4 py-2.5 text-navy transition-colors focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20"
-                />
-              </div>
-
-              <button
-                type="submit"
-                class="w-full rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-light focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
-              >
-                {t('form.submit')}
-              </button>
-            </form>
-          ) : (
-            <p class="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-              Contact form requires <code class="font-mono text-xs">PUBLIC_WEB3FORMS_KEY</code> environment variable.
-              Email us directly at{' '}
-              <a href="mailto:complitech@mail.ee" class="font-medium underline">
-                complitech@mail.ee
-              </a>
-              .
-            </p>
-          )
-        }
-      </div>
     </div>
   </div>
 </section>

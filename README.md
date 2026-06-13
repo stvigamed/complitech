@@ -19,8 +19,6 @@ npm run optimize-images   # converts logos to public/images/
 npm run dev               # http://localhost:4321
 ```
 
-Copy `.env.example` to `.env` and set `PUBLIC_WEB3FORMS_KEY` to enable the contact form locally.
-
 ## Build
 
 ```bash
@@ -32,8 +30,7 @@ npm run preview
 
 1. Push this repository to GitHub
 2. In **Settings → Pages**, set source to **GitHub Actions**
-3. Add secret `WEB3FORMS_ACCESS_KEY` with your [Web3Forms](https://web3forms.com) access key — either as a **repository secret** (Settings → Secrets → Actions) or as a secret on the **github-pages environment** (Settings → Environments → github-pages)
-4. Configure DNS for custom domain:
+3. Configure DNS for custom domain:
    - `CNAME` record: `complitech.ee` → `<username>.github.io`
    - Enable custom domain in repo Settings → Pages
    - Enforce HTTPS

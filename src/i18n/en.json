@@ -59,16 +59,6 @@
     "vatValue": "EE102318454",
     "website": "Website"
   },
-  "form": {
-    "title": "Send a Message",
-    "name": "Full Name",
-    "email": "Email Address",
-    "company": "Company / Institution",
-    "phone": "Phone (optional)",
-    "message": "Your Message",
-    "submit": "Send Request",
-    "subject": "CompliTech Quote Request"
-  },
   "footer": {
     "tagline": "Working worldwide for your benefit.",
     "rights": "All rights reserved.",
