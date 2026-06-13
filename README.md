@@ -32,7 +32,7 @@ npm run preview
 
 1. Push this repository to GitHub
 2. In **Settings → Pages**, set source to **GitHub Actions**
-3. Add repository secret `WEB3FORMS_ACCESS_KEY` with your [Web3Forms](https://web3forms.com) access key
+3. Add secret `WEB3FORMS_ACCESS_KEY` with your [Web3Forms](https://web3forms.com) access key — either as a **repository secret** (Settings → Secrets → Actions) or as a secret on the **github-pages environment** (Settings → Environments → github-pages)
 4. Configure DNS for custom domain:
    - `CNAME` record: `complitech.ee` → `<username>.github.io`
    - Enable custom domain in repo Settings → Pages
