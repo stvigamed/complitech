@@ -57,6 +57,12 @@
     "chatHint": "One number for calls and messengers",
     "callLabel": "Or call"
   },
+  "notFound": {
+    "title": "Page Not Found | Compli Tech",
+    "heading": "Page not found",
+    "description": "The page you are looking for may have been moved, removed, or never existed.",
+    "cta": "Back to homepage"
+  },
   "footer": {
     "tagline": "Working worldwide for your benefit.",
     "rights": "All rights reserved.",

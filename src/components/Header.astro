@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { useTranslations } from '../i18n/ui';
 import type { Locale } from '../i18n/config';
@@ -9,6 +10,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const { t } = useTranslations(locale);
+const homeUrl = getRelativeLocaleUrl(locale, '/');
 
 const navItems = [
   { id: 'about', label: t('nav.about') },
@@ -20,7 +22,7 @@ const navItems = [
 
 <header class="sticky top-0 z-50 border-b border-white/10 bg-navy shadow-lg">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href="#" class="flex shrink-0 items-center gap-3" aria-label="Compli Tech OÜ — Home">
+    <a href={homeUrl} class="flex shrink-0 items-center gap-3" aria-label="Compli Tech OÜ — Home">
       <picture>
         <source srcset="/images/logo-small.webp" type="image/webp" />
         <img
@@ -41,7 +43,7 @@ const navItems = [
       {
         navItems.map((item) => (
           <a
-            href={`#${item.id}`}
+            href={`${homeUrl}#${item.id}`}
             class="text-sm font-medium text-white/85 transition-colors hover:text-teal-light"
           >
             {item.label}
@@ -69,7 +71,7 @@ const navItems = [
           {
             navItems.map((item) => (
               <a
-                href={`#${item.id}`}
+                href={`${homeUrl}#${item.id}`}
                 class="block px-4 py-2 text-sm text-white/90 hover:bg-white/10 hover:text-white"
               >
                 {item.label}

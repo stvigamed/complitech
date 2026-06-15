@@ -8,15 +8,18 @@ import { useTranslations } from '../i18n/ui';
 interface Props {
   locale: Locale;
   title?: string;
+  description?: string;
+  noindex?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, title, description, noindex } = Astro.props;
 const { t } = useTranslations(locale);
 ---
 
 <!doctype html>
 <html lang={locale}>
   <head>
+    <slot name="head" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -27,7 +30,7 @@ const { t } = useTranslations(locale);
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <SEOHead locale={locale} />
+    <SEOHead locale={locale} title={title} description={description} noindex={noindex} />
     <JsonLd locale={locale} />
   </head>
   <body class="antialiased">
